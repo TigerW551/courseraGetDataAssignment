@@ -8,7 +8,7 @@ Then simply run source("run_analysis.R") in R. The script will generate a tidy d
 
 This script results from the assignment of the Coursera course: Getting and Cleaning Data.
 
-The codebook for original data can be found in the README.txt file coming with the downloaded zip file. The new tidy data set newDataSet.txt created by the run_analysis.R script only contains (averaged) subset of the original data. The procedure is as following:
+The codebook for original data can be found in the README.txt file coming with the downloaded zip file. The new tidy data set newDataSet.txt contains only (averaged) subset of the original data. The procedure is as following:
 
 *) Combine the training and testing data into one data set for the X, y, and subject data
 
