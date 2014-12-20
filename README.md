@@ -12,7 +12,7 @@ The codebook for the original data can be found in the README.txt file coming wi
 
 *) Combine the training and testing data into one data set for the X, y, and subject data
 
-*) Find the column indices of the feature names containing "-mean" and "-std()" using the features data. Note that some duplicated features are removed during these process.
+*) Find the column indices of the feature names containing "-mean" and "-std()" using the features data. Note that some duplicated features are removed during this process.
 
 *) Further removed resulting features ending with "()" instead of X, Y, or Z
 
