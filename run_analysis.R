@@ -36,25 +36,18 @@ dataX <- rbind(X_train, X_test)
 dataY <- rbind(y_train, y_test)
 subject <- rbind(subject_train, subject_test)$V1
 
-# to select the mean and std columns, first find all the features containing "mean" 
+# to select the mean and std columns, find all the features containing "-mean()" or "-std()",
 # ignoring cases using the substring match function grepl() to get a logical vector 
 # for subsetting the features
 #
-features[grepl("Mean", features$V2, ignore.case=T),]
-
-# this results 53 features containing mean, and after looking them over, it's clear that 
-# the mean measurements have unique pattern "-mean()" or "-meanFreg()" in their labels. 
-# And similiarly, "-std()" for the std measurements
-#
 # Now we can subset the required features 
 #
-f_meanStd <- features[grepl("-mean|-std()", features$V2, ignore.case=T), ]
+f_meanStd <- features[grepl("-mean\\(\\)|-std\\(\\)", features$V2, ignore.case=T), ]
 
-# exam the features in f_meanStd, we noticed some column names missing the X,Y,Z labels
-# at the end, which are probably by mistake and should be removed, i.e., remove features
-# ending with "()" instead of X, Y, or Z
+# exam the features in f_meanStd, we noticed that some column names contain "BodyBody" which
+# are not included in the cookbook and probably by mistake, thus are removed
 #
-f_index <- f_meanStd[!grepl("\\(\\)$", f_meanStd$V2), ]
+f_index <- f_meanStd[!grepl("BodyBody", f_meanStd$V2), ]
 
 # Now, we can use the f_index to subset the data set as
 #
