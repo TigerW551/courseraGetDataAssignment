@@ -48,25 +48,24 @@ features[grepl("Mean", features$V2, ignore.case=T),]
 #
 # Now we can subset the required features 
 #
-f_mean <- features[grepl("-mean", features$V2, ignore.case=T), ]
-f_std <- features[grepl("-std()", features$V2, ignore.case=T), ]
+f_meanStd <- features[grepl("-mean|-std()", features$V2, ignore.case=T), ]
 
-# Merge mean and std feature index to generate the indices for the required feature
+# exam the features in f_meanStd, we noticed some column names missing the X,Y,Z labels
+# at the end, which are probably by mistake and should be removed, i.e., remove features
+# ending with "()" instead of X, Y, or Z
 #
-f_index <- sort(c(f_mean$V1, f_std$V1))
-
-# To double check we got the right indices, see the output of
-#
-features[f_index, ]
+f_index <- f_meanStd[!grepl("\\(\\)$", f_meanStd$V2), ]
 
 # Now, we can use the f_index to subset the data set as
 #
-X <- dataX[, f_index]
+X <- dataX[, f_index$V1]
 
 # To label the data set with descriptive variable names
-# gsub is used to get rid of "()" in the labels since they're useless
+# gsub is used to get rid of "()" in the labels since they're useless and troublesome,
+# furthermore, prefix "avg-" is added to feature names to indicate that it's average value
 #
-names(X) <- sapply(features[f_index, ]$V2, function(s){gsub("()","",s,fixed=T)})
+g <- function(s){ paste("avg", gsub("()","",s,fixed=T), sep="-") }
+names(X) <- sapply(features[f_index$V1, ]$V2, g)
 
 # To use the activity_labels to name the activities in the data set, 
 # we can get the activity label for each measurement as
