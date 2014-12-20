@@ -14,7 +14,7 @@ The codebook for the original data can be found in the README.txt file coming wi
 
 *) Find the column indices of the feature names containing "-mean" and "-std()" using the features data. Note that some duplicated features are removed during this process.
 
-*) Further removed resulting features ending with "()" instead of X, Y, or Z
+*) Further removed features ending with "()" instead of X, Y, or Z
 
 *) Then subset the data set to include only those identified columns
 
