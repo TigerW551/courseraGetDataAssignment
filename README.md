@@ -25,7 +25,7 @@ The codebook for the original data can be found in the README.txt file coming wi
 *) The subject, activity, and the selected measurements are combined into a single data frame
 
 *) All measurements from the same subject for the same activity are averaged, thus the prefix "avg-" mentioned above.
-Note that the average won't change the unit of the features, thus should be the same as in the original data.
+Note that the average won't change the unit of the features, which should be the same as in the original data.
 
 *) The resulting tidy data set are saved to newDataSet.txt
 
