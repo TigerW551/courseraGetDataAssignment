@@ -33,4 +33,4 @@ More detailed notes can be found in the script run_analysis.R
 
 *** Refer to the original README.txt for a brief description of the experiment and the database.
 
-*** The cookbook describes the features in the new derived newDataSet.txt, which is updated from the orginal feature_info.txt.
+*** The codebook describes the features in the new derived newDataSet.txt, which is updated from the orginal feature_info.txt.
